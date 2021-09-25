@@ -1,0 +1,29 @@
+{
+  "name": "iot-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prisma-migrate": "prisma migrate dev --name init",
+    "prisma-deploy": "prisma migrate deploy init",
+    "prisma-generate": "prisma generate",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwafa/iot-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwafa/iot-service/issues"
+  },
+  "homepage": "https://github.com/mwafa/iot-service#readme",
+  "dependencies": {
+    "@prisma/client": "^3.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "prisma": "^3.1.1"
+  }
+}
