@@ -22,6 +22,7 @@
   "homepage": "https://github.com/mwafa/iot-service#readme",
   "dependencies": {
     "@prisma/client": "^3.1.1",
+    "cookies": "^0.8.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",

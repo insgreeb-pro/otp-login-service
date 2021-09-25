@@ -1,4 +1,6 @@
+const Cookies = require("cookies")
 const { Router } = require("express")
+const authMiddleware = require("../middleware/auth")
 const DB = require("../utils/db")
 const sendMail = require("../utils/email")
 const emailValidation = require("../utils/emailValidation")
@@ -35,6 +37,8 @@ otpRouter.post("/auth", async (req, res) => {
           update: { email },
         })
         const token = JWTGenerate(email)
+        const cookies = new Cookies(req, res)
+        cookies.set("x-auth", token, { httpOnly: true })
         return res.json({ token })
       }
       return res.status(400).json({ error: true, message: "Invalid OTP" })
@@ -44,6 +48,10 @@ otpRouter.post("/auth", async (req, res) => {
     console.log(e)
     return res.status(400).json({ error: true, message: "Invalid input!" })
   }
+})
+
+otpRouter.get("/auth", authMiddleware, (req, res) => {
+  res.json({ token: req.token })
 })
 
 module.exports = otpRouter
