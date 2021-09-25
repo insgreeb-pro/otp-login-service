@@ -6,3 +6,10 @@ datasource db {
   provider = "sqlite"
   url      = "file:../data.db"
 }
+
+model User {
+  email  String  @id
+  name   String?
+  nim    String?
+  avatar String?
+}
