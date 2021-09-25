@@ -54,4 +54,10 @@ otpRouter.get("/auth", authMiddleware, (req, res) => {
   res.json({ token: req.token })
 })
 
+otpRouter.delete("/auth", (req, res) => {
+  const cookies = new Cookies(req, res)
+  cookies.set("x-auth", "logout!")
+  res.json({ message: "Logout!" })
+})
+
 module.exports = otpRouter
